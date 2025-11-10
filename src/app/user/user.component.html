@@ -1,0 +1,31 @@
+<h2>All Users</h2>
+<h1 style="align-items: center;" *ngIf="isBoolean else Sharvari">Hii I am True 😎</h1>
+<ng-template #Sharvari>
+    <h1>Hii I am False 🤔</h1>
+</ng-template>
+<div class="show" [ngSwitch]="fruitEmoji">
+    <h1 *ngSwitchCase="'🍎'">Apple🍎</h1>
+    <h1 *ngSwitchCase="'🍍'">PineApple🍍</h1>
+    <h1 *ngSwitchCase="'🥭'">Mango🥭</h1>
+    <h1 *ngSwitchCase="'🍉'">Watermelon🍉</h1>
+    <h1 *ngSwitchCase="'🍓'">Strawberry🍓</h1>
+    <h1 *ngSwitchDefault>Cheery🍒</h1>
+</div>
+<table border="1" cellspacing="0px" cellpading="0px">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of users">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.city}}</td>
+        </tr>
+    </tbody>
+</table>

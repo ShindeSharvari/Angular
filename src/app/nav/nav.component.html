@@ -1,0 +1,19 @@
+<nav id="navBar">
+    <div id="logo">
+        <h2>{{ logoName }}</h2>
+    </div>
+    <div id="phone">
+        <input [(ngModel)]="msg" type="text" placeholder="Enter Contact Number">
+        <h2>{{msg}}</h2>
+    </div>
+    <div>
+        <ul id="list">
+            <li>Home</li>
+            <li>About Us</li>
+            <li>Projects</li>
+            <li>Studio</li>
+            <li>Contact</li>
+            <li>{{ option}}</li>
+        </ul>
+    </div>
+</nav>

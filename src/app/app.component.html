@@ -1,0 +1,32 @@
+<router-outlet></router-outlet>
+
+<app-nav></app-nav>
+<main>
+<div id="box">
+    <input [(ngModel)]="message" type="text" placeholder="Enter text here">
+    <h1>Message:{{ message}}</h1>
+
+    <!-- 
+    two way binding
+    1.Import FormsModule in app.module.ts
+    FormsModule
+    2.Create variable in app.component.ts
+    message:string =''
+
+    3.Perform two way binding
+    app.component.html
+
+    <input [(ngModel)]="message" type="text" placeholder="Enter text here">
+    <h1>Message:{{ message}}</h1>
+
+    -->
+</div>
+
+<div id="imgBox">
+    <input [(ngModel)]="url" type="text" placeholder="Enter url">
+    <img src="{{url}}" alt="" width="400px" height="300px">
+</div>
+</main>
+<app-user>
+    
+</app-user>
