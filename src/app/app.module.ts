@@ -7,6 +7,8 @@ import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { UserComponent } from './user/user.component';
+import { SharyuComponent } from './sharyu/sharyu.component';
+
 
 
 @NgModule({
@@ -15,6 +17,7 @@ import { UserComponent } from './user/user.component';
     NavComponent,
     FooterComponent,
     UserComponent,
+    SharyuComponent
   ],
   imports: [
     BrowserModule,
