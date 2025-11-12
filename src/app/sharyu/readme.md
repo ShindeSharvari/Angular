@@ -1,134 +1,97 @@
--------------------------------------------------------------
-ANGULAR COMPONENT - STRUCTURAL DIRECTIVES DEMO
--------------------------------------------------------------
+# Sharyu Component - README
 
-Component Name: SharyuComponent
-Technology Used: Angular (HTML, CSS, TypeScript)
+## ✅ Component Name
 
--------------------------------------------------------------
-DESCRIPTION
--------------------------------------------------------------
-This Angular component demonstrates how structural directives 
-work in Angular. Directives used in this component:
+**SharyuComponent**
 
-1. *ngIf          → Shows content based on a condition
-2. ngSwitch       → Displays content based on matching conditions
-3. *ngFor         → Loops through array and displays data in table
-4. ngClass        → Applies CSS class dynamically based on boolean value
+## 📌 Purpose of Component
 
--------------------------------------------------------------
-FILES INCLUDED
--------------------------------------------------------------
-sharyu.component.html
-sharyu.component.ts
-sharyu.component.css
+This Angular component demonstrates the use of **ngClass** and **event binding** to dynamically change CSS classes based on a boolean value.
+When the user clicks the button, the text color toggles between **green** and **red**.
 
--------------------------------------------------------------
-EXPLANATION OF CODE
--------------------------------------------------------------
+---
 
-1. *ngIf (Conditional Rendering)
--------------------------------
-Shows:
-    ✅ "Hii I am True 😎"     when condition is TRUE
-    ✅ "Hii I am False 🤔"    when condition is FALSE
+## 📂 Files Involved
 
-Code example:
-<h1 *ngIf="isBoolean else Sharvari">Hii I am True 😎</h1>
-<ng-template #Sharvari>
-    <h1>Hii I am False 🤔</h1>
-</ng-template>
+| File Name               | Description                           |
+| ----------------------- | ------------------------------------- |
+| `sharyu.component.ts`   | Contains component logic (TypeScript) |
+| `sharyu.component.html` | Contains UI structure (HTML)          |
+| `sharyu.component.css`  | Contains styling rules (CSS classes)  |
 
--------------------------------------------------------------
+---
 
-2. ngSwitch (Multi Conditional Rendering)
------------------------------------------
-Displays a fruit name based on the selected fruit emoji stored 
-in 'fruitEmoji' variable.
+## 🧠 How It Works
 
-<div [ngSwitch]="fruitEmoji">
-    <h1 *ngSwitchCase="'🍎'">Apple🍎</h1>
-    <h1 *ngSwitchCase="'🍍'">PineApple🍍</h1>
-    <h1 *ngSwitchCase="'🥭'">Mango🥭</h1>
-    <h1 *ngSwitchDefault>Cherry🍒</h1>
-</div>
+### ✅ TypeScript Logic (`sharyu.component.ts`)
 
--------------------------------------------------------------
+* A boolean variable `isActive` is used to determine which CSS class to apply.
+* `ChangeColor()` toggles `isActive` between `true` and `false` every time the button is clicked.
 
-3. *ngFor (Looping)
--------------------
-Displays a list of users in a table format.
+### ✅ HTML (`sharyu.component.html`)
 
-<tr *ngFor="let item of users">
-    <td>{{item.id}}</td>
-    <td>{{item.name}}</td>
-    <td>{{item.age}}</td>
-    <td>{{item.city}}</td>
-</tr>
+* Uses Angular directive **[ngClass]** to apply green or red CSS class dynamically.
+* Includes a button with click event binding `(click)` to trigger the class change.
 
--------------------------------------------------------------
+### ✅ CSS (`sharyu.component.css`)
 
-4. ngClass (Dynamic CSS Class)
--------------------------------
-Used to toggle text color (red/green) using boolean value.
+* Has two classes `green` and `red` defining different text colors.
 
-TypeScript:
-isActive=false;
-ChangeColor(){
-    this.isActive = !this.isActive;
-}
+---
 
-CSS Used:
-.red {
-    color: red;
-}
-.green {
-    color: green;
-}
+## 🔧 Code Overview
 
--------------------------------------------------------------
-TS FILE (sharyu.component.ts)
--------------------------------------------------------------
-import { Component } from '@angular/core';
+### HTML
 
-@Component({
-  selector: 'app-sharyu',
-  templateUrl: './sharyu.component.html',
-  styleUrls: ['./sharyu.component.css']
-})
+```html
+<h1 [ngClass]="{'green' : isActive == true, 'red' : isActive == false}">Hii my name is Sharyu</h1>
+<button (click)="ChangeColor()">Change Color</button>
+```
+
+### TypeScript
+
+```ts
 export class SharyuComponent {
-   isActive = false;
-   isBoolean = true;
-   fruitEmoji = '🥭';
+  isActive = false;
 
-   users = [
-        {id: 1, name: 'Sharvari', age: 22, city: 'Pune'},
-        {id: 2, name: 'John', age: 26, city: 'Mumbai'}
-   ];
+  ChangeColor() {
+    this.isActive = !this.isActive;
+  }
+}
+```
 
-   ChangeColor(){
-      this.isActive = !this.isActive;
-   }
+### CSS
+
+```css
+.red {
+  color: red;
 }
 
--------------------------------------------------------------
-HOW TO USE THIS COMPONENT
--------------------------------------------------------------
-Place the selector in app.component.html
+.green {
+  color: green;
+}
+```
 
+---
+
+## 🚀 Output Behavior
+
+| Action                | Result                                     |
+| --------------------- | ------------------------------------------ |
+| Initial state         | Text appears in **red** color              |
+| After clicking button | Text toggles between **green** and **red** |
+
+---
+
+## 🔁 How to Use This Component
+
+1. Ensure this component is declared inside `app.module.ts`.
+2. Add its selector in any HTML file where you want it to appear:
+
+```html
 <app-sharyu></app-sharyu>
+```
 
-Run the project using:
-ng serve --open
+---
 
--------------------------------------------------------------
-PURPOSE OF THIS FILE
--------------------------------------------------------------
-This file helps any reader understand:
-- What this Angular component does
-- What directives are used
-- How the code works
-
--------------------------------------------------------------
-END OF FILE
--------------------------------------------------------------
+### ✅ End of File
